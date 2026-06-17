@@ -131,8 +131,14 @@ function goRequest(method, uuid, data) {
     url: path,
     type: type,
     dataType: 'json',
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader("Authorization", "Basic " + btoa("demo:demo"));
+    // Use the credentials the browser already cached when you logged in to the
+    // UI. Don't force an Authorization header here: a hardcoded one (e.g.
+    // "demo:demo") overrides your real credentials, so when http_login/
+    // http_password differ the server returns 401, the browser re-prompts, and
+    // the retry forces the wrong header again — an endless login loop that
+    // never saves. Same-origin XHR attaches cached basic-auth automatically.
+    xhrFields: {
+      withCredentials: true
     },
     success: function(response) {
       goRequestHandle(method, response, uuid);
