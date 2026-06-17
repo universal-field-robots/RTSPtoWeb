@@ -6,10 +6,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/joshjowen/vdk/format/rtmp"
+	"github.com/universal-field-robots/vdk/format/rtmp"
 
-	"github.com/joshjowen/vdk/av"
-	"github.com/joshjowen/vdk/format/rtspv2"
+	"github.com/universal-field-robots/vdk/av"
+	"github.com/universal-field-robots/vdk/format/rtspv2"
 	"github.com/sirupsen/logrus"
 )
 

@@ -494,6 +494,13 @@ function chanellTemplate() {
               </div>
               <small  class="form-text text-muted">Select this options if you want get more data about the stream </small>
             </div>
+            <div class="form-group">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" name="audio" id="substream-audio-switch-` + random + `" >
+                <label class="custom-control-label" for="substream-audio-switch-` + random + `">Enable audio</label>
+              </div>
+              <small  class="form-text text-muted">Pull audio from the camera (WebRTC supports G.711 PCMA/PCMU and Opus) </small>
+            </div>
               </form>
           </div>
       </div>

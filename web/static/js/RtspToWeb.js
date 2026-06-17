@@ -93,12 +93,17 @@ var rtspPlayer={
       }]
     });
     this.webrtc.onnegotiationneeded = this.handleNegotiationNeeded;
+    var mediaStream = new MediaStream();
+    $("#videoPlayer")[0].srcObject = mediaStream;
     this.webrtc.ontrack = function(event) {
-      console.log(event.streams.length + ' track is delivered');
-      $("#videoPlayer")[0].srcObject = event.streams[0];
+      console.log(event.track.kind + ' track is delivered');
+      mediaStream.addTrack(event.track);
       $("#videoPlayer")[0].play();
     }
     this.webrtc.addTransceiver('video', {
+      'direction': 'sendrecv'
+    });
+    this.webrtc.addTransceiver('audio', {
       'direction': 'sendrecv'
     });
     this.webrtcSendChannel = this.webrtc.createDataChannel('foo');

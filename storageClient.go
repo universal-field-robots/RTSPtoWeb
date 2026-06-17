@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"github.com/joshjowen/vdk/av"
+	"github.com/universal-field-robots/vdk/av"
 )
 
 //ClientAdd Add New Client to Translations
